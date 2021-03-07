@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Ajax Request demonstration</h1>
+<div id="buttons">
+    <h1>Select a country</h1>
+    <button type="button" onclick="loadUSA()">Display USA</button>
+    <br><br>
+    <button type="button" onclick="loadCanada()">Display Canada</button>
+    <br><br>
+    <button type="button" onclick="loadMexico()">Display Mexico</button>
+    <br><br>
+    <button type="button" onclick="loadRussia()">Display Russia</button>
+
+</div>
+<br>
+<div id="ajax">
+<h2>Country data will be displayed here.</h2>
+</div>
+<hr>
+
+<div id="jsondemo">
+
+<h2>This is where the JSON call will be demonstrated.</h2>
+
+<form>
+<label for="jsoninput">JSON File Name:</label>
+<input type="text" id="jsoninput" name="jsoninput" value= "json.txt"><br>
+<button type="button" onclick="loadJSON()">Submit</button>
+</form>
+
+</div>
+
+<script>
+function loadUSA() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ajax").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "usa.txt", true);
+  xhttp.send();
+}
+
+function loadCanada() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ajax").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "canada.txt", true);
+  xhttp.send();
+}
+
+function loadRussia() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ajax").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "russia.txt", true);
+  xhttp.send();
+}
+
+function loadMexico() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ajax").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "mexico.txt", true);
+  xhttp.send();
+}
+
+
+/* Here's where the issue lies- I'm not sure how to take the form input from above, then turn that into the URL that the POST request is pulling from */
+
+function loadJson(){
+  var Jsonaddress = document.getElementById("jsoninput");
+  
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("jsondemo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("POST", (user input from form), true);
+  xhttp.send();
+}
+
+</script>
+
+</body>
+</html>
